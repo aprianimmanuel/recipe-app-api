@@ -15,10 +15,10 @@ The Recipe App API is a project that aims to provide a backend API for a recipe 
 
 ## Technologies Used
 
-- Programming Language: [Insert programming language here]
-- Framework: [Insert framework here]
-- Database: [Insert database here]
-- Testing: [Insert testing framework here]
+- Programming Language: Python
+- Framework: Django, django rest framework
+- Database: PostgreSQL
+- Testing: Django Unit Test
 
 ## Installation
 
