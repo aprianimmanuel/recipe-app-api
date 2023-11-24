@@ -1,0 +1,13 @@
+version: "3.9" # optional since v1.27.0
+
+services: # Service names are used as DNS hostnames
+  app: 
+    build:
+      context: .
+      args:
+        - DEV=true # pass build-time variables
+    ports:
+      - "8002:8000" # publish ports
+    volumes:
+      - ./app:/app # mount volumes
+    command: sh -c "python manage.py runserver 0.0.0.0:8000" # run command

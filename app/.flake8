@@ -1,0 +1,12 @@
+[flake8]
+
+exclude =
+    .git,
+    __pycache__,
+    */migrations/*,
+    */static/*,
+    venv,
+    recipe-app-api/app/.flake8,
+    migrations,
+    manage.py
+    
