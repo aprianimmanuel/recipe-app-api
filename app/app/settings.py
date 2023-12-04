@@ -73,11 +73,11 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql', #noqa
-        'HOST': os.environ.get('DB_HOST'), #noqa
-        'NAME': os.environ.get('DB_NAME'), #noqa
-        'USER': os.environ.get('DB_USER'), #noqa
-        'PASSWORD': os.environ.get('DB_PASS'), #noqa
+        'ENGINE': 'django.db.backends.postgresql', # noqa
+        'HOST': os.environ.get('DB_HOST'), # noqa
+        'NAME': os.environ.get('DB_NAME'), # noqa
+        'USER': os.environ.get('DB_USER'), # noqa
+        'PASSWORD': os.environ.get('DB_PASS'), # noqa
     }
 }
 
@@ -95,7 +95,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator', # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator', #noqa
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator', # noqa
     },
 ]
 
