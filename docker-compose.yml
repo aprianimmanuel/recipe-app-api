@@ -11,3 +11,22 @@ services: # Service names are used as DNS hostnames
     volumes:
       - ./app:/app # mount volumes
     command: sh -c "python manage.py runserver 0.0.0.0:8000" # run command
+    environment:
+      - DB_HOST=db # environment variables
+      - DB_NAME=devdb
+      - DB_USER=devuser
+      - DB_PASSWORD=devpass
+    depends_on:
+      - db # wait for db to be ready
+  
+  db:
+    image: postgres:13-alpine
+    environment:
+      - POSTGRES_DB=devdb
+      - POSTGRES_USER=devuser
+      - POSTGRES_PASSWORD=devpass
+    volumes:
+      - dev-db-data:/var/lib/postgresql/data # mount volumes
+
+volumes:
+  dev-db-data: # named volumes
