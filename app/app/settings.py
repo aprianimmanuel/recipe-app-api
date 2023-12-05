@@ -77,7 +77,7 @@ DATABASES = {
         'HOST': os.environ.get('DB_HOST'), # noqa
         'NAME': os.environ.get('DB_NAME'), # noqa
         'USER': os.environ.get('DB_USER'), # noqa
-        'PASSWORD': os.environ.get('DB_PASSwWORD'), # noqa
+        'PASSWORD': os.environ.get('DB_PASSWORD'), # noqa
     }
 }
 
