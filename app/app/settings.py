@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'core',
     'rest_framework', # noqa
     'drf_spectacular', # noqa
+    'user',
 ]
 
 MIDDLEWARE = [
