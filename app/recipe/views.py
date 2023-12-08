@@ -16,8 +16,15 @@ class RecipeViewSet(viewsets.ModelViewSet):
     authentication_classes = [TokenAuthentication]  # use TokenAuthentication. Default is SessionAuthentication. # noqa
     permission_classes = [IsAuthenticated]  # use IsAuthenticated. Default is AllowAny. # noqa
     queryset = Recipe.objects.all()  # get all recipes
-    serializer_class = serializers.RecipeSerializer  # use RecipeSerializer
+    serializer_class = serializers.RecipeDetailSerializer  # use RecipeDetailSerializer # noqa
 
     def get_queryset(self):
         """Retrieve recipes for authenticated user."""
-        return self.queryset.filter(user=self.request.user).order_by('-id')
+        return self.queryset.filter(user=self.request.user).order_by('-id')  # filter the queryset # noqa
+
+    def get_serializer_class(self):
+        """Return the serializer class for request."""
+        if self.action == 'list':  # if the action is list
+            return serializers.RecipeSerializer  # use RecipeSerializer
+
+        return self.serializer_class  # otherwise use the default serializer
