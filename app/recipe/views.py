@@ -36,26 +36,16 @@ class RecipeViewSet(viewsets.ModelViewSet):
         """Create a new recipe."""
         serializer.save(user=self.request.user)
 
+
 class TagViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     """
     ViewSet for tags.
     """
     authentication_classes = [TokenAuthentication]  # use TokenAuthentication. Default is SessionAuthentication. # noqa
     permission_classes = [IsAuthenticated]  # use IsAuthenticated. Default is AllowAny. # noqa
-    queryset = Recipe.objects.all()  # get all recipes
+    queryset = Tag.objects.all()  # get all recipes
     serializer_class = serializers.TagSerializer  # use TagSerializer # noqa
 
     def get_queryset(self):
         """Retrieve tags for authenticated user."""
-        return self.queryset.filter(user=self.request.user).order_by('-name')  # filter the queryset # noqa
-
-    def get_serializer_class(self):
-        """Return the serializer class for request."""
-        if self.action == 'list':  # if the action is list
-            return serializers.TagSerializer  # use TagSerializer
-
-        return self.serializer_class  # otherwise use the default serializer
-
-    def perform_create(self, serializer):
-        """Create a new tag."""
-        serializer.save(user=self.request.user)
+        return self.queryset.filter(user=self.request.user).order_by('-id')  # filter the queryset # noqa
