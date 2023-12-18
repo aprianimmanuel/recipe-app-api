@@ -83,7 +83,7 @@ class PrivateRecipeAPITests(TestCase):
 
     def test_recipes_list_limited_to_user(self):
         """Test retrieving recipes for user."""
-        other_user = get_user_model().objects.create_user(email='other@example.com',password='test123')  # noqa
+        other_user = create_user(email='other@example.com', password='test123')  # noqa
         create_recipe(user=other_user)  # create a recipe for the other user # noqa
         create_recipe(user=self.user)  # create a recipe for the authenticated user # noqa
 

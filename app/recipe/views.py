@@ -8,7 +8,10 @@ from rest_framework import (
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
-from core.models import Recipe
+from core.models import (
+    Recipe,
+    Tag,
+)
 from recipe import serializers
 
 
@@ -48,4 +51,4 @@ class TagViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
 
     def get_queryset(self):
         """Retrieve tags for authenticated user."""
-        return self.queryset.filter(user=self.request.user).order_by('-id')  # filter the queryset # noqa
+        return self.queryset.filter(user=self.request.user).order_by('-name')  # filter the queryset # noqa
